@@ -1,0 +1,34 @@
+- You can run the code directly using the .jar file or the .class executables, or you can access and compile the source code yourself from the "source" folder.
+
+- The algorithm needs the Loandra solver to be installed.
+
+- There needs to be 6 folders called "clauses", "consts", "labels", "logs", "pairs", and "solutions" next to the JAR file.
+
+Parameters:
+
+-d [value]: tree depth (specifying no depth results in flat clustering)
+-print: to print the results
+-norm: to normalize the features in the dataset
+-obj [mode] [eps value]: the clustering objective, "wcm" mode for MD only and "wcm+bcm_p" mode for Pareto objective (optional: add "-Smart" after [eps value] to use smart pairs)
+-k [value]: number of clusters
+-seed [value]: randomization seed
+-mcl_c n[value]: number of must and cannot-links to be generated based on the size of the dataset (kappa value)
+-sto [value]: timeout limit (in minutes)
+-path [string]: the path to the loandra solver
+-post [string]: a postfix to distinguish the name of the files stored in the six folders
+
+Dataset:
+- The name of the dataset should come at the end of the command
+- The dataset file should be named "instance_[dataset name]"
+- The dataset format is:
+	"flags: l" if labels appear at the end of each line or "flags: lb" if they appear at the beginning
+	[n] (size of the dataset)
+	[f] (number of features)
+	[c] (number of labels)
+	each line: first the features and then the label, separated by space
+
+
+Example:
+
+java com.company.Main -norm -print -seed 1234 -post _test -obj wcm+bcm_p 0.1 -smart -k 2 -d 2 -mcl_c n0.5 -sto 30 -path ~/SAT_Project/loandra-master/loandra_static iris
+

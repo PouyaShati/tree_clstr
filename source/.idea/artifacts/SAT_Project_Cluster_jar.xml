@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SAT_Project_Cluster:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SAT_Project_Cluster_jar</output-path>
+    <root id="archive" name="SAT_Project_Cluster.jar">
+      <element id="module-output" name="SAT_Project_Cluster" />
+    </root>
+  </artifact>
+</component>
